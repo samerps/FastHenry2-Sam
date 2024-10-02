@@ -5,7 +5,7 @@
 #include "induct.h"
 #include <string.h>
 #ifdef SOLARIS
-#include <sys/systeminfo.h>
+// #include <sys/systeminfo.h>
 #endif
 
 #define GOOD 0
