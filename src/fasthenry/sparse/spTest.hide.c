@@ -107,9 +107,9 @@ extern int strcmp(), strncmp(), strlen();
  *   TIMING
  */
 
-#ifndef vms
-#   include <sys/param.h>
-#endif
+// #ifndef vms
+// #   include <sys/param.h>
+// #endif
 #ifdef notdef  /* __STDC__ */
 /* Deleted because some ANSI C compilers to not yet have complete h files. */
 // #   include <time.h>
