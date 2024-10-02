@@ -198,8 +198,8 @@ char *argv[];
   //stoptimer;
   // ftimes[5] = dtime;
 
-  if (indsys->opts->debug == ON)
-    printf("Time for Multipole Setup: %lg\n",dtime);
+  // if (indsys->opts->debug == ON)
+  //   printf("Time for Multipole Setup: %lg\n",dtime);
 
   //starttimer;
 
@@ -448,8 +448,8 @@ char *argv[];
   //stoptimer;
   // ftimes[1] = dtime;
 
-  if (indsys->opts->debug == ON)
-    printf("Time to Form M and Z: %lg\n",dtime);
+  // if (indsys->opts->debug == ON)
+  //   printf("Time to Form M and Z: %lg\n",dtime);
 
   printf("Total Memory allocated: %d kilobytes\n",memcount/1024);
 
@@ -724,8 +724,8 @@ char *argv[];
     //stoptimer;
     // ftimes[3] += dtime;
 
-    if (indsys->opts->debug == ON)
-      printf("Time spent on forming Precond: %lg\n",dtime);
+    // if (indsys->opts->debug == ON)
+    //   printf("Time spent on forming Precond: %lg\n",dtime);
 
     //starttimer;
     for(ext = get_next_ext(indsys->externals), i=0; ext != NULL;
