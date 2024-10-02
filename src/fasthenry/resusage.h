@@ -4,23 +4,23 @@
 
 #ifdef FOUR
 #define NOTOTHER 1
-#include <sys/time.h>
+// #include <sys/time.h>
 #include <sys/resource.h>
-struct rusage timestuff;
+// struct rusage timestuff;
 #endif
 
 #ifdef FIVE
 #define NOTOTHER 1
 #include <sys/types.h>
 #include <sys/param.h>
-#include <sys/times.h>
-struct tms timestuff;
+// #include <sys/times.h>
+// struct tms timestuff;
 #endif
 
 /* define macros for time and resident memory usage checks */
 
-static double dtime = 0.0;
-static long sectime, utime;
+// static double dtime = 0.0;
+// static long sectime, utime;
 
 #ifdef NOTOTHER
 

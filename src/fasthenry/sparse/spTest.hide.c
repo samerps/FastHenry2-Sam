@@ -112,7 +112,7 @@ extern int strcmp(), strncmp(), strlen();
 #endif
 #ifdef notdef  /* __STDC__ */
 /* Deleted because some ANSI C compilers to not yet have complete h files. */
-#   include <time.h>
+// #   include <time.h>
 #   define HZ   CLK_TCK
 #endif
 #ifndef HZ
@@ -135,13 +135,13 @@ extern int strcmp(), strncmp(), strlen();
 #endif
 
 /* Routine that queries the system to find the process time. */
-double
-Time()
-{
-    struct time {long user, system, childuser, childsystem;} time;
-    (void)times(&time);
-    return (double)time.user / (double)HZ;
-}
+//double
+// Time()
+// {
+//     struct time {long user, system, childuser, childsystem;} time;
+//     (void)times(&time);
+//     return (double)time.user / (double);
+// }
 
 
 
