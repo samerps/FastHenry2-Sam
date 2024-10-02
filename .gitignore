@@ -1,0 +1,6 @@
+*.o
+*.inp
+*.mat
+*.a
+bin/fasthenry.exe
+bin/Zc.csv

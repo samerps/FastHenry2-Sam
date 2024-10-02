@@ -1,0 +1,22 @@
+=========================================
+              FastHenry
+=========================================
+
+
+FastHenry is the premium inductance solver originally developed at M.I.T. on Unix platform. A de-facto golden reference standard, FastHenry extracts the inductances and resistances of any arbitrary 3D conductive geometry by solving the Maxwell equations in quasi-static regime.
+
+
+This repository contains the source code, in three separated branches.
+
+
+The 'master' branch contains the original FastHenry distribution from M.I.T. plus bug fixes and porting to 64 bits and 32 bits Linux systems by FastFieldSolvers S.R.L. (http://www.fastfieldsolvers.com). 
+Remark: in this branch the original 'README' file has been renamed 'README.mit'. Refer to the README.mit file for further details on this branch.
+
+The 'WinMSVS' branch contains the FastHenry2 code.  FastHenry2 is the FastFieldSolvers S.R.L. Windows porting of FastHenry, including a GUI. It compiles under the free for open source projects MS Visual Studio 2013 Community Edition (for exact details about MS VS2013 licensing please refer to its terms and conditions from MicroSoft)
+
+The 'WRCad' branch contains the FastHenry enhancements made by Whiteley Research Inc. (http://www.wrcad.com/) for supporting superconductive elements. Code compiles for Linux 32/64 bits as well as for Windows in shell only mode, using MinGW.
+
+
+For pre-compiled binaries, details, branch descriptions, and instructions for compiling please visit http://www.fastfieldsolvers.com/download.htm.
+Access to the download pages is free, and you may access anonymously if you want.
+
