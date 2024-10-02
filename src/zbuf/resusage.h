@@ -61,7 +61,7 @@ static long sectime, utime;
 sectime = timestuff.ru_utime.tv_sec; \
 utime = timestuff.ru_utime.tv_usec
 #define stoptimer getrusage(RUSAGE_SELF, &timestuff); \
-dtime = (double)(timestuff.ru_utime.tv_sec - sectime) \
+// dtime = (double)(timestuff.ru_utime.tv_sec - sectime) \
         + 1.0e-6*(double)(timestuff.ru_utime.tv_usec - utime)
 #define DUMPRSS			/*  */
 #endif /* FOUR */
@@ -70,8 +70,8 @@ dtime = (double)(timestuff.ru_utime.tv_sec - sectime) \
 #define starttimer times(&timestuff); \
 utime = timestuff.tms_utime
 #define stoptimer times(&timestuff); \
-dtime = (timestuff.tms_utime)-utime; \
-dtime /= HZ
+// dtime = (timestuff.tms_utime)-utime; \
+// dtime /= HZ
 #define DUMPRSS			/*  */
 #endif /* FIVE */
 

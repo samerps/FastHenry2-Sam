@@ -90,7 +90,7 @@ ssystem *sys;
 
 #endif
     /* stoptimer; */
-    dirtime += dtime;
+    // dirtime += dtime;
 
 #if DSQ2PD == ON
     dumpQ2PDiag(nextc);
@@ -109,7 +109,7 @@ ssystem *sys;
       /* starttimer; */
       nextc->directlu = ludecomp(nextc->directmats[0], eval_size, TRUE);
       /* stoptimer; */
-      lutime += dtime;
+      // lutime += dtime;
     }
 #endif
     
@@ -138,7 +138,7 @@ ssystem *sys;
 #endif
     }
     /* stoptimer; */
-    dirtime += dtime;
+    // dirtime += dtime;
   }
 }
 
