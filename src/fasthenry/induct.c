@@ -52,7 +52,7 @@ char *argv[];
   CX dumb;
   CX *vect, **pvect;         /* space needed by gmres */
   double tol = 1e-8;
-  double ftimes[TIMESIZE];
+  //double ftimes[TIMESIZE];
   int maxiters, user_maxiters;
   CX *b, *x0;
   SYS *indsys;           /* holds all the big variables (inductance system) */
@@ -82,7 +82,7 @@ char *argv[];
   memcount = 0;
 
   for(i = 0; i < TIMESIZE; i++)
-    ftimes[i] = 0;
+    //ftimes[i] = 0;
 
   //starttimer;
 
@@ -183,7 +183,7 @@ char *argv[];
   chglist = chgdummy.next;
 
   //stoptimer;
-  ftimes[0] = dtime;
+  //ftimes[0] = dtime;
 
   //starttimer;
 
@@ -196,7 +196,7 @@ char *argv[];
 #endif
 
   //stoptimer;
-  ftimes[5] = dtime;
+  // ftimes[5] = dtime;
 
   if (indsys->opts->debug == ON)
     printf("Time for Multipole Setup: %lg\n",dtime);
@@ -221,7 +221,7 @@ char *argv[];
                        = pick_subset(opts->portlist, indsys);
 
   //stoptimer;
-  ftimes[6] = dtime;
+  // ftimes[6] = dtime;
 
   /* Write to Zc.mat only if we aren't only running for visualization */
   if ( !(opts->makeFastCapFile & (SIMPLE | REFINED))
@@ -446,7 +446,7 @@ char *argv[];
   fillZ(indsys);
 
   //stoptimer;
-  ftimes[1] = dtime;
+  // ftimes[1] = dtime;
 
   if (indsys->opts->debug == ON)
     printf("Time to Form M and Z: %lg\n",dtime);
@@ -634,7 +634,7 @@ char *argv[];
 
 
     //stoptimer;
-    ftimes[2] += dtime;
+    // ftimes[2] += dtime;
 
     //starttimer;
 
@@ -722,7 +722,7 @@ char *argv[];
     }
 
     //stoptimer;
-    ftimes[3] += dtime;
+    // ftimes[3] += dtime;
 
     if (indsys->opts->debug == ON)
       printf("Time spent on forming Precond: %lg\n",dtime);
@@ -794,7 +794,7 @@ char *argv[];
 
     }
     //stoptimer;
-    ftimes[4] += dtime;
+    // ftimes[4] += dtime;
 
     if (i != indsys->num_sub_extern) {
       fprintf(stderr, "Huh?  columns calculated = %d  and num extern = %d\n",
