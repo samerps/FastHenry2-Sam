@@ -12,7 +12,7 @@
 #ifdef FIVE
 #define NOTOTHER 1
 // #include <sys/types.h>
-#include <sys/param.h>
+// #include <sys/param.h>
 // #include <sys/times.h>
 // struct tms timestuff;
 #endif
