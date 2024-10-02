@@ -84,7 +84,7 @@ char *argv[];
   for(i = 0; i < TIMESIZE; i++)
     ftimes[i] = 0;
 
-  starttimer;
+  //starttimer;
 
   indsys = (SYS *)MattAlloc(1, sizeof(SYS));
   indsys->externals = NULL;
@@ -182,10 +182,10 @@ char *argv[];
   chgend->next = NULL;
   chglist = chgdummy.next;
 
-  stoptimer;
+  //stoptimer;
   ftimes[0] = dtime;
 
-  starttimer;
+  //starttimer;
 
   /* set up multipole stuff */
   sys = SetupMulti(chglist, indsys);
@@ -195,13 +195,13 @@ char *argv[];
     dump_evalcnts(sys);
 #endif
 
-  stoptimer;
+  //stoptimer;
   ftimes[5] = dtime;
 
   if (indsys->opts->debug == ON)
     printf("Time for Multipole Setup: %lg\n",dtime);
 
-  starttimer;
+  //starttimer;
 
   printf("Scanning graph to find fundamental circuits...\n");
   /* find all the necessary meshes */
@@ -220,7 +220,7 @@ char *argv[];
   num_sub_extern = indsys->num_sub_extern
                        = pick_subset(opts->portlist, indsys);
 
-  stoptimer;
+  //stoptimer;
   ftimes[6] = dtime;
 
   /* Write to Zc.mat only if we aren't only running for visualization */
@@ -396,7 +396,7 @@ char *argv[];
   meshsect = indsys->meshsect;
   R = indsys->R;
 
-  starttimer;
+  //starttimer;
 /*
   printf("filling A...\n");
   fillA(segment, A, num_segs);
@@ -445,7 +445,7 @@ char *argv[];
   printf("filling R and L...\n");
   fillZ(indsys);
 
-  stoptimer;
+  //stoptimer;
   ftimes[1] = dtime;
 
   if (indsys->opts->debug == ON)
@@ -460,7 +460,7 @@ char *argv[];
   /* free memory for lookup table */
   destroy_table();
 
-  starttimer;
+  //starttimer;
   choose_and_setup_precond(indsys);
 
   if (opts->dumpMats) {
@@ -581,7 +581,7 @@ char *argv[];
       m++, freq = (fmin != 0 ? pow(10.0,log10(fmin) + m*logofstep) : 0.0)) {
     printf("Frequency = %lg\n",freq);
 
-    starttimer;
+    //starttimer;
 
     if (!dont_form_Z && (opts->mat_vect_prod == DIRECT || opts->soln_technique == LUDECOMP)) {
     
@@ -633,10 +633,10 @@ char *argv[];
 }
 
 
-    stoptimer;
+    //stoptimer;
     ftimes[2] += dtime;
 
-    starttimer;
+    //starttimer;
 
     if (opts->soln_technique == ITERATIVE) {
       if (indsys->precond_type == LOC) {
@@ -721,13 +721,13 @@ char *argv[];
       exit(1);
     }
 
-    stoptimer;
+    //stoptimer;
     ftimes[3] += dtime;
 
     if (indsys->opts->debug == ON)
       printf("Time spent on forming Precond: %lg\n",dtime);
 
-    starttimer;
+    //starttimer;
     for(ext = get_next_ext(indsys->externals), i=0; ext != NULL;
 	                       ext = get_next_ext(ext->next),i++) {
       printf("conductor %d from node %s\n",i, get_a_name(ext->source));
@@ -793,7 +793,7 @@ char *argv[];
       }
 
     }
-    stoptimer;
+    //stoptimer;
     ftimes[4] += dtime;
 
     if (i != indsys->num_sub_extern) {
@@ -848,9 +848,9 @@ char *argv[];
     fclose(fb);
 
   printf("\nAll impedance matrices dumped to file Zc%s.mat\n\n",opts->suffix);
-  totaltime = 0;
-  for(i = 0; i < TIMESIZE; i++)
-    totaltime += ftimes[i];
+  // totaltime = 0;
+  // for(i = 0; i < TIMESIZE; i++)
+  //   totaltime += ftimes[i];
 
   if (indsys->opts->debug == ON) {
     printf("Calls to exact_mutual: %15d\n",num_exact_mutual);
@@ -861,14 +861,14 @@ char *argv[];
     printf("\n");
   }
 
-  printf("Times:  Read geometry   %lg\n",ftimes[0]);
-  printf("        Multipole setup %lg\n",ftimes[5]);
-  printf("        Scanning graph  %lg\n",ftimes[6]);
-  printf("        Form A M and Z  %lg\n",ftimes[1]);
-  printf("        form M'ZM       %lg\n",ftimes[2]);
-  printf("        Form precond    %lg\n",ftimes[3]);
-  printf("        GMRES time      %lg\n",ftimes[4]);
-  printf("   Total:               %lg\n",totaltime);
+  // printf("Times:  Read geometry   %lg\n",ftimes[0]);
+  // printf("        Multipole setup %lg\n",ftimes[5]);
+  // printf("        Scanning graph  %lg\n",ftimes[6]);
+  // printf("        Form A M and Z  %lg\n",ftimes[1]);
+  // printf("        form M'ZM       %lg\n",ftimes[2]);
+  // printf("        Form precond    %lg\n",ftimes[3]);
+  // printf("        GMRES time      %lg\n",ftimes[4]);
+  // printf("   Total:               %lg\n",totaltime);
 
 #ifdef MATTDEBUG
   /* print memory bins */
