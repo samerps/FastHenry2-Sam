@@ -115,9 +115,7 @@ extern long membins[1001];
 
 #define DUMPALLOCSIZ                                                   \
 {                                                                      \
-  (void)fprintf(stderr,                                                \
-		"Total Memory Allocated: %d kilobytes (brk = 0x%x)\n", \
-		memcount/1024, sbrk(0));                               \
+                               \
 /* # ***** awked out for release */                                    \
   (void)fprintf(stderr, " Q2M  matrix memory allocated: %7.d kilobytes\n",\
 		memQ2M/1024);                                          \

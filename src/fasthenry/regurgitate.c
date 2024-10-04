@@ -4,7 +4,7 @@
 
 #include "induct.h"
 
-regurgitate(indsys)
+void regurgitate(indsys)
 SYS *indsys;
 {
   /* functions to shift coordinates */

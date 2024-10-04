@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "mulglobal.h": "c",
+        "time.h": "c"
+    }
+}

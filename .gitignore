@@ -4,3 +4,4 @@
 *.a
 bin/fasthenry.exe
 bin/Zc.csv
+*.obj

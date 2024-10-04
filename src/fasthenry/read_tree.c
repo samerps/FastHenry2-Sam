@@ -60,10 +60,10 @@ void print_leaf_cell(Gcell *cell, FILE *fp);
 
 #ifndef MAKE_CONTACTS_FUN
 #define MAKE_CONTACTS_FUN
-void contact_error(char *errstr, char *line, ContactList *contactp);
-void contact_error2(char *errstr, char *line, char *nametype);
-void make_contacts(ContactList *contactp, Nonuni_gp *gp);
-void contact_point(ContactList *contactp, Nonuni_gp *gp, double relx, double rely, double relz, double units);
+//void contact_error(char *errstr, char *line, ContactList *contactp);
+//void contact_error2(char *errstr, char *line, char *nametype);
+//void make_contacts(ContactList *contactp, Nonuni_gp *gp);
+//void contact_point(ContactList *contactp, Nonuni_gp *gp, double relx, double rely, double relz, double units);
 #endif
 
 int process_plane(GROUNDPLANE *grndp, FILE *fp, SYS *indsys)

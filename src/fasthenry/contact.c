@@ -20,6 +20,11 @@
 
 #define MAXNAME 20
 
+void contact_error(char *errstr, char *line, ContactList *contactp);
+void contact_error2(char *errstr, char *line, char *nametype);
+void make_contacts(ContactList *contactp, Nonuni_gp *gp);
+void contact_point(ContactList *contactp, Nonuni_gp *gp, double relx, double rely, double relz, double units);
+
 
 /* this turns the info in line into a ContactList element */
 ContactList *make_contactlist(head, line, units, relx, rely, relz, skip)

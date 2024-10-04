@@ -6,7 +6,7 @@
 /* this writes a file of faces of the segments suitable to be
    read in by keith's program for generating postscript images */
 
-writefastcap(fname, shading_name, indsys)
+void writefastcap(fname, shading_name, indsys)
 char *fname, *shading_name;
 SYS *indsys;
 {

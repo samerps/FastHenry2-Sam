@@ -72,7 +72,7 @@ static char RCSid[] =
 
 // Enrico prototypes
 static void Translate();
-static ExpandTranslationArrays();
+static void ExpandTranslationArrays();
 
 
 
@@ -861,7 +861,7 @@ ElementPtr  pCreatedElement, spcGetElement(), spcGetFillin();
  *      Column currently being operated upon.
  */
 
-spcLinkRows( Matrix )
+void spcLinkRows( Matrix )
 
 MatrixPtr Matrix;
 {
@@ -1001,7 +1001,7 @@ register int I, OldAllocatedSize = Matrix->AllocatedSize;
  */
 
 static
-ExpandTranslationArrays( Matrix, NewSize )
+void ExpandTranslationArrays( Matrix, NewSize )
 
 MatrixPtr Matrix;
 register int  NewSize;

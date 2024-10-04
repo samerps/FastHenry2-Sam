@@ -72,9 +72,9 @@ static char RCSid[] =
 
 // Enrico, prototypes
 static int FactorComplexMatrix();
-static CreateInternalVectors();
-static CountMarkowitz();
-static MarkowitzProducts();
+static void CreateInternalVectors();
+static void CountMarkowitz();
+static void MarkowitzProducts();
 static ElementPtr SearchForPivot();
 static ElementPtr SearchForSingleton();
 static ElementPtr QuicklySearchDiagonal();
@@ -82,15 +82,18 @@ static ElementPtr SearchDiagonal();
 static ElementPtr SearchEntireMatrix();
 static RealNumber FindLargestInCol();
 static RealNumber FindBiggestInColExclude();
-static ExchangeRowsAndCols();
-static ExchangeColElements();
-static ExchangeRowElements();
-static RealRowColElimination();
-static ComplexRowColElimination();
-static UpdateMarkowitzNumbers();
+static void ExchangeRowsAndCols();
+static void ExchangeColElements();
+static void ExchangeRowElements();
+static void RealRowColElimination();
+static void ComplexRowColElimination();
+static void UpdateMarkowitzNumbers();
 static ElementPtr CreateFillin();
-static MatrixIsSingular();
-static ZeroPivot();
+static int MatrixIsSingular();
+static int ZeroPivot();
+void spcLinkRows();
+void spcRowExchange();
+void spcColExchange();
 
 
 
@@ -739,7 +742,7 @@ BOOLEAN *DoRealDirect, *DoCmplxDirect;
  */
 
 static
-CreateInternalVectors( Matrix )
+void CreateInternalVectors( Matrix )
 
 MatrixPtr  Matrix;
 {
@@ -828,7 +831,7 @@ int  Size;
  */
 
 static
-CountMarkowitz( Matrix, RHS, Step )
+void CountMarkowitz( Matrix, RHS, Step )
 
 MatrixPtr Matrix;
 register RealVector  RHS;
@@ -938,7 +941,7 @@ int  ExtRow;
  */
 
 static
-MarkowitzProducts( Matrix, Step )
+void MarkowitzProducts( Matrix, Step )
 
 MatrixPtr Matrix;
 int Step;
@@ -2095,7 +2098,7 @@ RealNumber  Largest, Magnitude;
  */
 
 static
-ExchangeRowsAndCols( Matrix, pPivot, Step )
+void ExchangeRowsAndCols( Matrix, pPivot, Step )
 
 MatrixPtr Matrix;
 ElementPtr  pPivot;
@@ -2224,7 +2227,7 @@ ElementPtr spcFindElementInCol();
  *      Pointer to the element in Row2 to be exchanged.
  */
 
-spcRowExchange( Matrix, Row1, Row2 )
+void spcRowExchange( Matrix, Row1, Row2 )
 
 MatrixPtr Matrix;
 int  Row1, Row2;
@@ -2325,7 +2328,7 @@ ElementPtr  Element1, Element2;
  *      Pointer to the element in Col2 to be exchanged.
  */
 
-spcColExchange( Matrix, Col1, Col2 )
+void spcColExchange( Matrix, Col1, Col2 )
 
 MatrixPtr Matrix;
 int  Col1, Col2;
@@ -2432,7 +2435,7 @@ ElementPtr  Element1, Element2;
  */
 
 static
-ExchangeColElements( Matrix, Row1, Element1, Row2, Element2, Column )
+void ExchangeColElements( Matrix, Row1, Element1, Row2, Element2, Column )
 
 MatrixPtr Matrix;
 register  ElementPtr  Element1, Element2;
@@ -2574,7 +2577,7 @@ register  ElementPtr  pElement;
  */
 
 static
-ExchangeRowElements( Matrix, Col1, Element1, Col2, Element2, Row )
+void ExchangeRowElements( Matrix, Col1, Element1, Col2, Element2, Row )
 
 MatrixPtr Matrix;
 int  Col1, Col2, Row;
@@ -2709,7 +2712,7 @@ register   ElementPtr  pElement;
  */
 
 static
-RealRowColElimination( Matrix, pPivot )
+void RealRowColElimination( Matrix, pPivot )
 
 MatrixPtr Matrix;
 register  ElementPtr  pPivot;
@@ -2798,7 +2801,7 @@ extern ElementPtr  CreateFillin();
  */
 
 static
-ComplexRowColElimination( Matrix, pPivot )
+void ComplexRowColElimination( Matrix, pPivot )
 
 MatrixPtr Matrix;
 register  ElementPtr  pPivot;
@@ -2882,7 +2885,7 @@ ElementPtr  CreateFillin();
  */
 
 static
-UpdateMarkowitzNumbers( Matrix, pPivot )
+void UpdateMarkowitzNumbers( Matrix, pPivot )
 
 MatrixPtr Matrix;
 ElementPtr  pPivot;

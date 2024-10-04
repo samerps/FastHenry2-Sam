@@ -855,7 +855,7 @@ realComputePsi(Prod, sys, B, chglist, indsys, size, numRHS, initcol)
     mulDirect(sys);
     mulEval(sys);
     /* stoptimer; */
-    dirtime += dtime;
+    // dirtime += dtime;
     
     for (chg = chglist; chg != NULL; chg = chg->next) {
       /* add potential due to i direction */

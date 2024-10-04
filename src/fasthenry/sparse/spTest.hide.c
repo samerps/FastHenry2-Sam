@@ -107,12 +107,12 @@ extern int strcmp(), strncmp(), strlen();
  *   TIMING
  */
 
-#ifndef vms
-#   include <sys/param.h>
-#endif
+// #ifndef vms
+// #   include <sys/param.h>
+// #endif
 #ifdef notdef  /* __STDC__ */
 /* Deleted because some ANSI C compilers to not yet have complete h files. */
-#   include <time.h>
+// #   include <time.h>
 #   define HZ   CLK_TCK
 #endif
 #ifndef HZ
@@ -135,13 +135,13 @@ extern int strcmp(), strncmp(), strlen();
 #endif
 
 /* Routine that queries the system to find the process time. */
-double
-Time()
-{
-    struct time {long user, system, childuser, childsystem;} time;
-    (void)times(&time);
-    return (double)time.user / (double)HZ;
-}
+//double
+// Time()
+// {
+//     struct time {long user, system, childuser, childsystem;} time;
+//     (void)times(&time);
+//     return (double)time.user / (double);
+// }
 
 
 
@@ -330,7 +330,7 @@ char j, PlotFile[BUFSIZ], ErrMsg[BUFSIZ];
 double  StartTime, BeginTime, BuildTime, FactorTime, SolveTime, PartitionTime;
 double  InitialFactorTime, ConditionTime, DeterminantTime;
 extern double  Time();
-extern char *sbrk();
+// extern char *sbrk();
 
 /* Begin `main'. */
 
@@ -691,7 +691,7 @@ End:;
     if (NOT SolutionOnly)
     {   printf("\nAggregate resource usage:\n");
         printf("    Time required = %.2lf seconds.\n", Time() - BeginTime);
-        printf("    Virtual memory used = %d kBytes.\n\n", ((int)sbrk(0))/1000);
+        // printf("    Virtual memory used = %d kBytes.\n\n", ((int)sbrk(0))/1000);
     }
     exit (0);
 }

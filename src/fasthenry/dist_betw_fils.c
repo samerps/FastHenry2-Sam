@@ -235,7 +235,7 @@ FILAMENT *fil;
     return 1.0/rat;
 }
 
-fill_Gquad()
+void fill_Gquad()
 {
   int i,j;
 

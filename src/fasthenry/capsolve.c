@@ -15,7 +15,7 @@ double *q, *p;
 int size;
 charge *chglist;
 {
-  extern double dirtime, uptime, downtime, evaltime, prectime;
+  //extern double dirtime, uptime, downtime, evaltime, prectime;
   extern int real_size;
   int i;
 
@@ -25,10 +25,10 @@ charge *chglist;
   for(i=1; i <= size; i++) p[i] = 0;
 
 #if PRECOND != NONE
-  starttimer;
+  //starttimer;
   mulPrecond(sys, PRECOND);
-  stoptimer;
-  prectime += dtime;
+  //stoptimer;
+  // prectime += dtime;
 #endif
 
 #if EXPGCR == ON
@@ -38,16 +38,16 @@ charge *chglist;
   blkExpandVector(q+1, size, real_size); /*    7 Oct 91 */
 #else
 /*  moved into SetupComputePsi since it only is done once 
-  starttimer;
+  //starttimer;
   mulDirect(sys);
-  stoptimer;
-  dirtime += dtime;
+  //stoptimer;
+  // dirtime += dtime;
 */
 
-  starttimer;
+  //starttimer;
   mulUp(sys);
-  stoptimer;
-  uptime += dtime;
+  //stoptimer;
+  // uptime += dtime;
 
 #if DUPVEC == ON
   dumpLevOneUpVecs(sys);
@@ -60,15 +60,15 @@ charge *chglist;
 #if DNTYPE == GRENGD
   mulDown(sys);	       	/* do heirarchical local shift dwnwd pass */
 #endif
-  stoptimer;
-  downtime += dtime;
+  //stoptimer;
+  // downtime += dtime;
 
-  starttimer;
+  //starttimer;
 #if MULTI == ON
   mulEval(sys);		/* evaluate either locals or multis or both */
 #endif
-  stoptimer;
-  evaltime += dtime;
+  //stoptimer;
+  // evaltime += dtime;
 
 #if DMPCHG == LAST
   fprintf(stdout, "\nPanel potentials divided by areas\n");

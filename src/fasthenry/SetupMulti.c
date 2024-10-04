@@ -108,7 +108,7 @@ SYS *indsys;
   sys = mulInit(autlev, numLev, numMom, chglist, indsys, pseudo_lev); 
                          /*Set up cubes, charges.*/
   /* stoptimer */
-  initalltime = dtime;
+  // initalltime = dtime;
  
   numLev = sys->depth;
 
@@ -196,7 +196,7 @@ SYS *indsys;
   /* starttimer; */
   mulMultiAlloc(MAX(sys->max_eval_pnt, sys->max_panel), numMom, sys->depth);
   /* stoptimer */
-  initalltime += dtime;		/* save initial allocation time */
+  // initalltime += dtime;		/* save initial allocation time */
 
 #if DUMPPS == ON || DUMPPS == ALL
   strcpy(filename, "psmat.ps");
@@ -211,14 +211,14 @@ SYS *indsys;
   /* starttimer; */
   bdmulMatPrecond(sys);
   /* stoptimer */
-  prsetime = dtime;		/* preconditioner set up time */
+  // prsetime = dtime;		/* preconditioner set up time */
 #endif
 
 #if PRECOND == OL
   /* starttimer; */
   olmulMatPrecond(sys);
   /* stoptimer */
-  prsetime = dtime;		/* preconditioner set up time */
+  // prsetime = dtime;		/* preconditioner set up time */
 #endif
 
 #if DMPREC == ON
@@ -265,7 +265,7 @@ SYS *indsys;
   mulMatEval(sys);		/* set up matrices for evaluation pass */
 
   /* stoptimer */
-  mulsetup = dtime;		/* save multipole matrix setup time */
+  // mulsetup = dtime;		/* save multipole matrix setup time */
 
   dumpnums(OFF, eval_size, up_size);	/* dump num/type of pot. coeff calcs */
 
