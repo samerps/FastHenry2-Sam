@@ -3,7 +3,7 @@
 #  Ken Kundert
 #  UC Berkeley
 #
-CFLAGS = -O -m64
+CFLAGS = -O -m64 -std=gnu89 -DNO_GETHOSTNAME
 LINTFLAGS = -lc -lm
 SHELL = /bin/sh
 CC = cc

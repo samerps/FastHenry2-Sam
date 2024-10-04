@@ -77,9 +77,9 @@ static char RCSid[] =
 
 
 // Enrico, prototypes
-static InitializeElementBlocks();
-static RecordAllocation();
-static AllocateBlockOfAllocationList();
+static void InitializeElementBlocks();
+static void RecordAllocation();
+static void AllocateBlockOfAllocationList();
 
 
 
@@ -376,7 +376,7 @@ ElementPtr  pElement;
  */
 
 static
-InitializeElementBlocks( Matrix, InitialNumberOfElements,
+void InitializeElementBlocks( Matrix, InitialNumberOfElements,
                          NumberOfFillinsExpected )
 
 MatrixPtr Matrix;
@@ -519,7 +519,7 @@ ElementPtr  pFillins;
  */
 
 static
-RecordAllocation( Matrix, AllocatedPtr )
+void RecordAllocation( Matrix, AllocatedPtr )
 
 MatrixPtr Matrix;
 char  *AllocatedPtr;
@@ -576,7 +576,7 @@ char  *AllocatedPtr;
  */
 
 static
-AllocateBlockOfAllocationList( Matrix )
+void AllocateBlockOfAllocationList( Matrix )
 
 MatrixPtr Matrix;
 {

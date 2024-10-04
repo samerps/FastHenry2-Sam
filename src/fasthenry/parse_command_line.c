@@ -534,9 +534,9 @@ ind_opts *opts;
   fprintf(stdout, "  Date: %s", ctime(&clock));
 #ifndef NO_GETHOSTNAME
 #ifndef SOLARIS
-  if(gethostname(hostname, BUFSIZ) != -1)
-      fprintf(stdout, "  Host: %s\n", hostname);
-  else fprintf(stdout, "  Host: ? (gethostname() failure)\n");
+  // if(gethostname(hostname, BUFSIZ) != -1)
+  //     fprintf(stdout, "  Host: %s\n", hostname);
+  // else fprintf(stdout, "  Host: ? (gethostname() failure)\n");
 #else
   if (sysinfo(SI_HOSTNAME,hostname,BUFSIZ) != -1)
       fprintf(stdout, "  Host: %s\n", hostname);

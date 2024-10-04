@@ -32,6 +32,12 @@ int machine = 0000;
 int machine = 1000;
 #endif
 
+int readGeom();
+void regurgitate();
+void concat4();
+void writefastcap();
+void fill_Gquad();
+// int matherr();
 
 main(argc, argv)
 int argc;
@@ -1280,12 +1286,12 @@ double sigma;  /* conductivitiy */
 
 /* mutual inductance functions moved to mutual.c */
 
-int matherr(exc)
-struct exception *exc;
-{
-  printf("Err in math\n");
-  return(0);
-}
+// int matherr(exc)
+// struct exception *exc;
+// {
+//   printf("Err in math\n");
+//   return(0);
+// }
 
 /* This counts the nonblank lines of the file  fp (unused) */
 int countlines(fp)
@@ -2110,7 +2116,7 @@ SYS *indsys;
 }
 
 /* concatenates so that s1 = s1 + s2 + s3 + s4 */
-concat4(s1,s2,s3,s4)
+void concat4(s1,s2,s3,s4)
 char *s1, *s2, *s3, *s4;
 {
   s1[0] = '\0';

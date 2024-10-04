@@ -305,13 +305,13 @@ long memcount;
   int first = 1;
 #endif
   int total;
-  char *sbrk();
+  // char *sbrk();
 
-  total = (int)(sbrk(0) - (char *)base);
+  // total = (int)(sbrk(0) - (char *)base);
 
-  if(base == NULL) fprintf(stdout, "(top of memory = 0x%x", sbrk(0));
-  else fprintf(stdout, "(%.3g%% efficiency",
-	       100*((double)memcount)/((double)total));
+  // if(base == NULL) fprintf(stdout, "(top of memory = 0x%x", sbrk(0));
+  // else fprintf(stdout, "(%.3g%% efficiency",
+	//        100*((double)memcount)/((double)total));
 
 #if UGDEBG == 2
   /* loop through blocks, get total btyes wasted (by allocator) */

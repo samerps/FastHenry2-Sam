@@ -330,7 +330,7 @@ char j, PlotFile[BUFSIZ], ErrMsg[BUFSIZ];
 double  StartTime, BeginTime, BuildTime, FactorTime, SolveTime, PartitionTime;
 double  InitialFactorTime, ConditionTime, DeterminantTime;
 extern double  Time();
-extern char *sbrk();
+// extern char *sbrk();
 
 /* Begin `main'. */
 
@@ -691,7 +691,7 @@ End:;
     if (NOT SolutionOnly)
     {   printf("\nAggregate resource usage:\n");
         printf("    Time required = %.2lf seconds.\n", Time() - BeginTime);
-        printf("    Virtual memory used = %d kBytes.\n\n", ((int)sbrk(0))/1000);
+        // printf("    Virtual memory used = %d kBytes.\n\n", ((int)sbrk(0))/1000);
     }
     exit (0);
 }
