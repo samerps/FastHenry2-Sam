@@ -528,6 +528,9 @@ ind_opts *opts;
   char hostname[BUFSIZ];
 
   fprintf(stdout, "Running FastHenry %s (%s)\n", FHVERSION, FHDATE);
+
+  fprintf(stdout, "Source code updated by Samer Aldhaher @samerps OCT 2024 \n");
+
   fprintf(stdout, "Source code fixes and compilation by FastFieldSolvers, 2012\n");
 
   time(&clock);
