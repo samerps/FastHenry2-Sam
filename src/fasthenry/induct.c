@@ -39,7 +39,7 @@ void writefastcap();
 void fill_Gquad();
 // int matherr();
 
-main(argc, argv)
+int main(argc, argv)
 int argc;
 char *argv[];
 {
@@ -636,6 +636,8 @@ char *argv[];
             MtZM[i][j].imag *= 2 * PI * freq;
         }
     }
+
+    return 0;
 }
 
 
