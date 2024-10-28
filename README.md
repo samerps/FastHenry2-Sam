@@ -7,7 +7,7 @@ FastHenry is the premium inductance solver originally developed at M.I.T. on Uni
 ## Compile Instructions - Windows
 
 1. Clone repo
-1. Download [MSYS](https://www.msys2.org/) and follow istallation instructions to install the mingw-w64 GCC tools. Make sure you add 
+1. Download [MSYS](https://www.msys2.org/) and follow istallation instructions to install the mingw-w64 GCC tools. 
 1. Install [Make](https://packages.msys2.org/packages/make) package
 1. Restart MSYS terminal 
 1. Navigate to cloned folder 
