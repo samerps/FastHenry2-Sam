@@ -1,4 +1,4 @@
-CFLAGS = -O -DFOUR -m64 -fcommon -std=gnu89 -lws2_32 -DNO_GETHOSTNAME
+CFLAGS = -O -DFOUR -m64 -fcommon -std=gnu89 -DNO_GETHOSTNAME
 
 SHELL = /bin/sh
 RM = /bin/rm
