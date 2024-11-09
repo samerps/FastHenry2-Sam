@@ -77,6 +77,9 @@ static char RCSid[] =
 // Enrico prototypes
 static RealNumber ComplexCondition();
 
+// Declare Functions
+void spcLinkRows( MatrixPtr Matrix );
+
 
 #if MODIFIED_NODAL
 /*

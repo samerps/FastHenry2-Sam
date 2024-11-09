@@ -1,5 +1,7 @@
 CFLAGS = -O -DFOUR -m64 -fcommon -std=gnu89 -DNO_GETHOSTNAME
 
+CC = /opt/homebrew/Cellar/gcc/14.2.0_1/bin/gcc-14
+
 SHELL = /bin/sh
 RM = /bin/rm
 BIN = ../../bin

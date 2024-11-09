@@ -5,3 +5,5 @@
 bin/fasthenry.exe
 bin/Zc.csv
 *.obj
+.DS_Store
+bin/fasthenry
