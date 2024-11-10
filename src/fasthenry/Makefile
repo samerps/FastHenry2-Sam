@@ -1,11 +1,34 @@
-CFLAGS = -O -DFOUR -m64 -fcommon -std=gnu89 -DNO_GETHOSTNAME
+# Default flags (add more specific ones based on the OS below)
+CFLAGS := -O -DFOUR -m64 -fcommon -std=gnu89 -DNO_GETHOSTNAME
 
+# Compiler path for different systems
+ifeq ($(OS), Windows_NT)
+    # Windows-specific settings
+    CC := gcc  # Use the appropriate path to gcc if needed
+    CFLAGS += -DWINDOWS
+
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S), Linux)
+        # Linux-specific settings
+        CC := gcc  # Replace with the correct path if not default
+        CFLAGS += -DLINUX
+    endif
+    ifeq ($(UNAME_S), Darwin)
+        # macOS-specific settings
+        CC := /opt/homebrew/Cellar/gcc/14.2.0_1/bin/gcc-14  # Replace if necessary
+        CFLAGS += -DMACOS
+    endif
+endif
+
+# Other variables
 SHELL = /bin/sh
 RM = /bin/rm
 BIN = ../../bin
 
 SPLIB = sparse/sparse.a
 
+# Object files
 OBJS = induct.o gmres.o savemat_mod.o readGeom.o joelself.o writefastcap.o \
        SetupMulti.o calcp.o SetupComputePsi.o mulSetup.o BreakupSeg.o \
        Precond.o addgroundplane.o findpaths.o fillM.o cx_ludecomp.o \
@@ -22,19 +45,21 @@ HEADER = induct.h cmplx.h resusage.h
 MULHEAD = mulStruct.h mulGlobal.h patran.h resusage.h
 NONUNIHEAD = gp.h
 
-fasthenry:	$(OBJS) $(MOBJS) $(NONUNIOBJS) $(SPLIB)
+# Main target
+fasthenry: $(OBJS) $(MOBJS) $(NONUNIOBJS) $(SPLIB)
 	$(CC) -o fasthenry $(CFLAGS) $(OBJS) $(MOBJS) $(NONUNIOBJS) $(SPLIB) -lm
 	mv fasthenry $(BIN)/fasthenry
 
+# Sparse library target
 $(SPLIB):
 	cd sparse; make
 
+# Clean rule
 clean:
 	$(RM) -f *.o
 	cd sparse; make clean
 
-$(OBJS):	$(HEADER) $(MULHEAD)
-
-$(MOBJS):	$(MULHEAD)
-
-$(NONUNIOBJS):  $(HEADER) $(MULHEAD) $(NONUNIHEAD)
+# Dependency rules
+$(OBJS): $(HEADER) $(MULHEAD)
+$(MOBJS): $(MULHEAD)
+$(NONUNIOBJS): $(HEADER) $(MULHEAD) $(NONUNIHEAD)
