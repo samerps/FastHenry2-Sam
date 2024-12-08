@@ -580,12 +580,12 @@ int column;
     }
   }
 
-  printf("saving to Jreal%s.mat, Jimag%s.mat, Jmag%s.mat\n",
+  printf("saving to Jreal%s.csv, Jimag%s.csv, Jmag%s.csv\n",
 	 indsys->opts->suffix,
 	 indsys->opts->suffix,
 	 indsys->opts->suffix);
 
-  sprintf(fname, "Jreal%s.mat",indsys->opts->suffix);
+  sprintf(fname, "Jreal%s.csv",indsys->opts->suffix);
   fpreal = fopen(fname,"w");
   if(fpreal == NULL){
     printf("couldn't open file %s\n",fname);
@@ -593,7 +593,7 @@ int column;
   }
 /*  fprintf(fpreal, "$ DATA=VECTOR\n");*/
 
-  sprintf(fname, "Jimag%s.mat",indsys->opts->suffix);
+  sprintf(fname, "Jimag%s.csv",indsys->opts->suffix);
   fpimag = fopen(fname,"w");
   if(fpimag == NULL){
     printf("couldn't open file %s\n",fname);
@@ -601,7 +601,7 @@ int column;
   }
 /*  fprintf(fpimag, "$ DATA=VECTOR\n");*/
 
-  sprintf(fname, "Jmag%s.mat",indsys->opts->suffix);
+  sprintf(fname, "Jmag%s.csv",indsys->opts->suffix);
   fpmag = fopen(fname,"w");
   if(fpmag == NULL){
     printf("couldn't open file %s\n",fname);
@@ -620,11 +620,11 @@ int column;
       x = fil->x[0];
       y = fil->y[0];
       z = fil->z[0];
-      fprintf(fpreal, "%lg %lg %lg  %lg %lg %lg\n",x,y,z,
+      fprintf(fpreal, "%lg,%lg,%lg,%lg,%lg,%lg\n",x,y,z,
 	      xv*current.real, yv*current.real, zv*current.real);
-      fprintf(fpimag, "%lg %lg %lg  %lg %lg %lg\n",x,y,z,
+      fprintf(fpimag, "%lg,%lg,%lg,%lg,%lg,%lg\n",x,y,z,
 	      xv*current.imag, yv*current.imag, zv*current.imag);
-      fprintf(fpmag, "%lg %lg %lg  %lg %lg %lg\n",x,y,z,
+      fprintf(fpmag, "%lg,%lg,%lg,%lg,%lg,%lg\n",x,y,z,
 	      xv*magcur, yv*magcur, zv*magcur);
     }
 
