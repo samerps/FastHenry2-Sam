@@ -635,70 +635,70 @@ int column;
   if (indsys->num_planes == 0)
     return;
 
-  printf("saving to file Grid%s%d_%d...\n",indsys->opts->suffix,
-	 column+1,freq_num);
-  sprintf(fname, "Grid%s%d_%d.mat",indsys->opts->suffix,column+1,freq_num);
+//   printf("saving to file Grid%s%d_%d...\n",indsys->opts->suffix,
+// 	 column+1,freq_num);
+//   sprintf(fname, "Grid%s%d_%d.mat",indsys->opts->suffix,column+1,freq_num);
 
-  fp = fopen(fname,"w");
-  if(fp == NULL){
-    printf("couldn't open file %s\n",fname);
-    exit(1);
-  }
+//   fp = fopen(fname,"w");
+//   if(fp == NULL){
+//     printf("couldn't open file %s\n",fname);
+//     exit(1);
+//   }
 
-  for(num = 0, p = indsys->planes; p != NULL; p = p->next, num++){
-    if (is_nonuni_gp(p))
-      dump_nonuni_plane_currents(p->nonuni, Ib, fp);
-    else {
-      dir1 = p->seg1 + 1;
-      dir2 = p->seg2 + 1;
+//   for(num = 0, p = indsys->planes; p != NULL; p = p->next, num++){
+//     if (is_nonuni_gp(p))
+//       dump_nonuni_plane_currents(p->nonuni, Ib, fp);
+//     else {
+//       dir1 = p->seg1 + 1;
+//       dir2 = p->seg2 + 1;
 
-      if (dir1 > maxdir1 || dir2 > maxdir2) {
-	out1 = (CX **)MatrixAlloc(dir2 + 10, dir1 + 10, sizeof(CX));
-	out2 = (CX **)MatrixAlloc(dir2 + 10, dir1 + 10, sizeof(CX));
-	maxdir1 = dir1 + 10;
-	maxdir2 = dir2 + 10;
-      }
+//       if (dir1 > maxdir1 || dir2 > maxdir2) {
+// 	out1 = (CX **)MatrixAlloc(dir2 + 10, dir1 + 10, sizeof(CX));
+// 	out2 = (CX **)MatrixAlloc(dir2 + 10, dir1 + 10, sizeof(CX));
+// 	maxdir1 = dir1 + 10;
+// 	maxdir2 = dir2 + 10;
+//       }
 
-      for(i = 0; i < dir2; i++)
-	for(j = 0; j < dir1; j++) {
-	  /* do direction 1 */
-	  if(j != dir1 - 1 && p->segs1[j][i] != NULL) {
-	    out1[i][j] = Ib[p->segs1[j][i]->filaments[0].filnumber];
-	    if (p->segs1[j][i]->node[0] != p->pnodes[j][i]) {
-	      printf("You goofed 1\n");
-	    }
-	  }
-	  else
-	    out1[i][j] = CXZERO;
+//       for(i = 0; i < dir2; i++)
+// 	for(j = 0; j < dir1; j++) {
+// 	  /* do direction 1 */
+// 	  if(j != dir1 - 1 && p->segs1[j][i] != NULL) {
+// 	    out1[i][j] = Ib[p->segs1[j][i]->filaments[0].filnumber];
+// 	    if (p->segs1[j][i]->node[0] != p->pnodes[j][i]) {
+// 	      printf("You goofed 1\n");
+// 	    }
+// 	  }
+// 	  else
+// 	    out1[i][j] = CXZERO;
 
-	  /* do direction 2 */
-	  if (i != dir2 - 1 && p->segs2[j][i] != NULL) {
-	    out2[i][j] = Ib[p->segs2[j][i]->filaments[0].filnumber];
-	    if (p->segs2[j][i]->node[0] != p->pnodes[j][i]) {
-	      printf("You goofed 2\n");
-	    }
-	  }
-	  else
-	    out2[i][j] = CXZERO;
-	}
+// 	  /* do direction 2 */
+// 	  if (i != dir2 - 1 && p->segs2[j][i] != NULL) {
+// 	    out2[i][j] = Ib[p->segs2[j][i]->filaments[0].filnumber];
+// 	    if (p->segs2[j][i]->node[0] != p->pnodes[j][i]) {
+// 	      printf("You goofed 2\n");
+// 	    }
+// 	  }
+// 	  else
+// 	    out2[i][j] = CXZERO;
+// 	}
 
-      printf("saving grid1%s...\n",p->name);
-      strcpy(fname, "grid1");
-      sprintf(tempstr, "%s",p->name);
-      strcat(fname, tempstr);
+//       printf("saving grid1%s...\n",p->name);
+//       strcpy(fname, "grid1");
+//       sprintf(tempstr, "%s",p->name);
+//       strcat(fname, tempstr);
 
-      savecmplx(fp, fname, out1, dir2, dir1);
+//       savecmplx(fp, fname, out1, dir2, dir1);
 
-      printf("saving grid2%s...\n",p->name);
-      strcpy(fname, "grid2");
-      sprintf(tempstr, "%s",p->name);
-      strcat(fname,tempstr);
+//       printf("saving grid2%s...\n",p->name);
+//       strcpy(fname, "grid2");
+//       sprintf(tempstr, "%s",p->name);
+//       strcat(fname,tempstr);
 
-      savecmplx(fp, fname, out2, dir2, dir1);
-    }
-  }
-  fclose(fp);
-}
+//       savecmplx(fp, fname, out2, dir2, dir1);
+//     }
+//   }
+//   fclose(fp);
+ }
   /*------------------------------------------------------------------------*/
 
 
