@@ -8,4 +8,4 @@ bin/Zc.csv
 bin/fasthenry
 *.csv
 *.DS_Store
-bin/output.bin
+bin/Jcurrents.bin

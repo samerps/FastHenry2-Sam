@@ -643,9 +643,9 @@ int column;
   fclose(fpmag);
 
 
+// S Aldhaher export J currents Jreal, Jimag, Jmag as binary
 
-
-FILE *fpbinary = fopen("output.bin", "wb");
+FILE *fpbinary = fopen("Jcurrents.bin", "wb");
 if (fpbinary == NULL) {
     perror("Error opening binary file");
     exit(EXIT_FAILURE);
