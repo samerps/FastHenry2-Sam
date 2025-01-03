@@ -4,6 +4,8 @@
 // Enrico
 #include <string.h>
 
+
+
 /* this fills the kircoff's voltage law matrix (Mesh matrix) */
 /* it maps a matrix of mesh currents to branch currents */
 /* it might actually be what some think of as the transpose of M */
@@ -13,6 +15,14 @@
 
 /* much of what is commented out is obsolete stuff from an old idea
    for a preconditioner that never worked */
+
+typedef struct {
+    double x, y, z;       // Filament's starting point
+    double real_xv, real_yv, real_zv; // Real current components
+    double imag_xv, imag_yv, imag_zv; // Imaginary current components
+    double mag_xv, mag_yv, mag_zv;    // Magnitude current components
+} FilamentData;
+   
 void fillM(indsys)
 SYS *indsys;
 {
@@ -631,6 +641,53 @@ int column;
   fclose(fpreal);
   fclose(fpimag);
   fclose(fpmag);
+
+
+// S Aldhaher export J currents Jreal, Jimag, Jmag as binary
+
+FILE *fpbinary = fopen("Jcurrents.bin", "wb");
+if (fpbinary == NULL) {
+    perror("Error opening binary file");
+    exit(EXIT_FAILURE);
+}
+
+for (seg = indsys->segment; seg != NULL; seg = seg->next) {
+    for (i = 0; i < seg->num_fils; i++) {
+        fil = &(seg->filaments[i]);
+        current = Ib[fil->filnumber];
+        magcur = cx_abs(current);
+
+        // Calculate components
+        xv = fil->lenvect[XX] / fil->length / fil->area;
+        yv = fil->lenvect[YY] / fil->length / fil->area;
+        zv = fil->lenvect[ZZ] / fil->length / fil->area;
+
+        // Prepare data structure
+        FilamentData data;
+        data.x = fil->x[0];
+        data.y = fil->y[0];
+        data.z = fil->z[0];
+        data.real_xv = xv * current.real;
+        data.real_yv = yv * current.real;
+        data.real_zv = zv * current.real;
+        data.imag_xv = xv * current.imag;
+        data.imag_yv = yv * current.imag;
+        data.imag_zv = zv * current.imag;
+        data.mag_xv = xv * magcur;
+        data.mag_yv = yv * magcur;
+        data.mag_zv = zv * magcur;
+
+        // Write to binary file
+        if (fwrite(&data, sizeof(FilamentData), 1, fpbinary) != 1) {
+            perror("Error writing to binary file");
+            fclose(fpbinary);
+            exit(EXIT_FAILURE);
+        }
+    }
+}
+
+fclose(fpbinary);
+
 
   if (indsys->num_planes == 0)
     return;
