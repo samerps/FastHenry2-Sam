@@ -373,12 +373,12 @@ by a distance 1e10 times their length\n");
     if ( fabs( (sqrt(vx*vx + vy*vy + vz*vz) - fabs(x2_1))
 	      /(MAX(fabs(x2_0)+d,fabs(x2_1)+d)))
 	> EPS) {
-      printf("uh oh, segs don't seem parallel %lg\n",(sqrt(vx*vx + vy*vy * vz*vz) - fabs(x2_1)));
+      // printf("uh oh, segs don't seem parallel %lg\n",(sqrt(vx*vx + vy*vy * vz*vz) - fabs(x2_1)));
     }
 
     if ( fabs( (vtemp - fabs(x2_0))/(MAX(fabs(x2_0)+d,fabs(x2_1)+d)))
 	> EPS) {
-      printf("uh oh, segs don't seem parallel\n");
+      // printf("uh oh, segs don't seem parallel\n");
     }
 
 
